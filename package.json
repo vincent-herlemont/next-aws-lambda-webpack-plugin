@@ -1,0 +1,20 @@
+{
+  "name": "next-aws-lambda-webpack-plugin",
+  "version": "0.0.1",
+  "description": "Pack a compat layer between next.js serverless page and AWS Lambda.",
+  "main": "src/aws-lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "serverless",
+    "nextjs",
+    "lambda",
+    "next",
+    "api",
+    "gateway",
+    "webpack"
+  ],
+  "author": "Vincent Herlemont",
+  "license": "ISC"
+}
