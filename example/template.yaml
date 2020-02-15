@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Example next-aws-lambda-webpack-plugin
+
+Metadata:
+  AWS::ServerlessRepo::Application:
+    Name: next-aws-lambda-webpack-plugin
+    Description: Example next-aws-lambda-webpack-plugin
+    Author: vincent-herlemont
+    Labels: ['example']
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+
+  IndexFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./aws_lambda/function/f_index
+      Handler: handler.render
+      Runtime: nodejs12.x
+      Layers:
+        - !Ref NextJSLayer
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /index
+            Method: get
+
+  NextJSLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: next-js-layer
+      Description: Next JS layer
+      ContentUri: ./aws_lambda/layer/
+      CompatibleRuntimes:
+        - nodejs12.x
+      RetentionPolicy: Retain
