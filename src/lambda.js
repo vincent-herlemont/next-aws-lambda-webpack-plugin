@@ -2,6 +2,38 @@ const path = require('path');
 const fs = require('fs');
 const {mkdir} = require('./utils');
 
+const createHandlerFile = (lambdaPath,entry) => {
+    const content = `
+// Require next-aws-lambda layer
+const compat = require("next-aws-lambda");
+const page = require("./${entry}");
+                
+module.exports.render = async (event, context, callback) => {
+  const responsePromise = compat(page)(event, context); // don't pass the callback parameter
+  return responsePromise;
+};
+                `;
+    const handlerPath = path.join(lambdaPath,'handler.js');
+    if (!fs.existsSync(handlerPath)) {
+        fs.writeFileSync(handlerPath, content);
+    }
+}
+
+const createNpmPackageFile = (lambdaPath) => {
+    const content = `
+{
+  "name": "index",
+  "version": "0.0.0",
+  "main": "./index.js"
+}
+    `;
+
+    const npmPackagePath = path.join(lambdaPath,'package.json');
+    if (!fs.existsSync(npmPackagePath)) {
+        fs.writeFileSync(npmPackagePath, content);
+    }
+}
+
 const explore = (pagesDir,functionDir) => {
     mkdir(functionDir);
 
@@ -21,20 +53,8 @@ const explore = (pagesDir,functionDir) => {
                 mkdir(lambdaPath);
                 fs.copyFileSync(pathEntry,path.join(lambdaPath,entry));
 
-                const handlerFileContent = `
-// Require next-aws-lambda layer
-const compat = require("next-aws-lambda");
-const page = require("./${entry}");
-                
-module.exports.render = async (event, context, callback) => {
-  const responsePromise = compat(page)(event, context); // don't pass the callback parameter
-  return responsePromise;
-};
-                `;
-                const handlerPath = path.join(lambdaPath,'handler.js');
-                if (!fs.existsSync(handlerPath)) {
-                    fs.writeFileSync(handlerPath, handlerFileContent);
-                }
+                createHandlerFile(lambdaPath,entry);
+                createNpmPackageFile(lambdaPath);
             }
         });
     });
