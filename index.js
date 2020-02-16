@@ -5,14 +5,15 @@ const workflow = require('./src/workflow');
  */
 class AwsLambda {
 
-    constructor(isServer) {
+    constructor(dev,isServer) {
+        this.dev = dev;
         this.isServer = isServer;
     }
 
     apply(compiler) {
         const {context} = compiler;
         compiler.hooks.done.tap('AwsLambda', () => {
-            workflow(context,this.isServer);
+            workflow(context,this.dev,this.isServer);
         });
     }
 }
