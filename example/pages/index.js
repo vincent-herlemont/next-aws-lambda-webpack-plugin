@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Home = () => {
     return <>
-        From Aws Lambda <Link href="/peaple/paul/profile"><a>Paul profile</a></Link>
+        From Aws Lambda <Link href="/people/paul/profile"><a>Paul profile</a></Link>
     </>
 };
 

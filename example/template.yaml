@@ -33,7 +33,7 @@ Resources:
   ProfileFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ./out_lambda/function/peaple/[name]/f_profile
+      CodeUri: ./out_lambda/function/people/[name]/f_profile
       Handler: handler.render
       Runtime: nodejs12.x
       Layers:
@@ -42,7 +42,7 @@ Resources:
         HelloWorld:
           Type: Api
           Properties:
-            Path: /peaple/{name}/profile
+            Path: /people/{name}/profile
             Method: get
 
   NextJSLayer:
