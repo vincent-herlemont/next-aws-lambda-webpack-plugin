@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "next": "9.2.1",
-    "next-aws-lambda-webpack-plugin": "0.0.3",
+    "next-aws-lambda-webpack-plugin": "0.0.4",
     "react": "16.12.0",
     "react-dom": "16.12.0"
   }
