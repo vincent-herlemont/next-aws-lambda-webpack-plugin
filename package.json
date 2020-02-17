@@ -7,7 +7,7 @@
   "bugs": "https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/issues",
   "repository": "github.com:vincent-herlemont/next-aws-lambda-webpack-plugin",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "serverless",
@@ -19,5 +19,11 @@
     "webpack"
   ],
   "author": "Vincent Herlemont",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "directory-tree": "^2.2.4",
+    "fs-extra": "^8.1.0",
+    "jest": "^25.1.0",
+    "tmp": "^0.1.0"
+  }
 }

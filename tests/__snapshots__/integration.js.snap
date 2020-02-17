@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`build example 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "extension": ".js",
+              "name": "_error.js",
+              "type": "file",
+            },
+            Object {
+              "extension": ".js",
+              "name": "handler.js",
+              "type": "file",
+            },
+            Object {
+              "extension": ".json",
+              "name": "package.json",
+              "type": "file",
+            },
+          ],
+          "name": "f__error",
+          "type": "directory",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "extension": ".js",
+              "name": "handler.js",
+              "type": "file",
+            },
+            Object {
+              "extension": ".js",
+              "name": "index.js",
+              "type": "file",
+            },
+            Object {
+              "extension": ".json",
+              "name": "package.json",
+              "type": "file",
+            },
+          ],
+          "name": "f_index",
+          "type": "directory",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [
+                    Object {
+                      "extension": ".js",
+                      "name": "handler.js",
+                      "type": "file",
+                    },
+                    Object {
+                      "extension": ".json",
+                      "name": "package.json",
+                      "type": "file",
+                    },
+                    Object {
+                      "extension": ".js",
+                      "name": "profile.js",
+                      "type": "file",
+                    },
+                  ],
+                  "name": "f_profile",
+                  "type": "directory",
+                },
+              ],
+              "name": "[name]",
+              "type": "directory",
+            },
+          ],
+          "name": "people",
+          "type": "directory",
+        },
+      ],
+      "name": "function",
+      "type": "directory",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [],
+              "name": "node_modules",
+              "type": "directory",
+            },
+            Object {
+              "extension": ".json",
+              "name": "package-lock.json",
+              "type": "file",
+            },
+            Object {
+              "extension": ".json",
+              "name": "package.json",
+              "type": "file",
+            },
+          ],
+          "name": "nodejs",
+          "type": "directory",
+        },
+      ],
+      "name": "layer",
+      "type": "directory",
+    },
+  ],
+  "name": "out_lambda",
+  "type": "directory",
+}
+`;
