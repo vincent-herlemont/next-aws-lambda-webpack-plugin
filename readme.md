@@ -34,12 +34,12 @@ Add the plugin to the NextJS ([next.config.js](https://nextjs.org/docs/api-refer
 | isServer      | YES           |
 
 ```Javascript
-const GenerateAwsLambda = require('next-aws-lambda-webpack-plugin');
+const AwsLambdaGenerator = require('next-aws-lambda-webpack-plugin');
 
 module.exports = {
     target: 'serverless',
     webpack: (config, {dev,isServer}) => {
-        config.plugins.push(new GenerateAwsLambda(dev,isServer));
+        config.plugins.push(new AwsLambdaGenerator(dev,isServer));
         return config
     },
 };

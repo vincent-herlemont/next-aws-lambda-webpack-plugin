@@ -3,7 +3,7 @@ const workflow = require('./src/workflow');
 /**
  * Plugin Webpack
  */
-class GenerateAwsLambda {
+class AwsLambdaGenerator {
 
     constructor(dev,isServer) {
         this.dev = dev;
@@ -18,4 +18,4 @@ class GenerateAwsLambda {
     }
 }
 
-module.exports = GenerateAwsLambda;
+module.exports = AwsLambdaGenerator;
