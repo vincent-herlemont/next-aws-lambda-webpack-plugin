@@ -1,6 +1,7 @@
 # next-aws-lambda-webpack-plugin
 
 [![npm puppeteer package](https://img.shields.io/npm/v/next-aws-lambda-webpack-plugin.svg)](https://www.npmjs.com/package/next-aws-lambda-webpack-plugin)
+[![integration test](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test/badge.svg?branch=master)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions?query=workflow%3A%22integration+test%22)
 
 This plugin will generate aws-lambda compatible function for each [nextjs pages](https://nextjs.org/docs/basic-features/pages). 
 After that, you can to use functions with the [AWS cloudformation template](https://aws.amazon.com/cloudformation/resources/templates/) or/and [AWS serverless template](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html).
