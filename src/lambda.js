@@ -14,10 +14,8 @@ module.exports.render = async (event, context, callback) => {
 };
                 `;
     const handlerPath = path.join(lambdaPath,'handler.js');
-    if (!fs.existsSync(handlerPath)) {
-        fs.writeFileSync(handlerPath, content);
-    }
-}
+    fs.writeFileSync(handlerPath, content);
+};
 
 const createNpmPackageFile = (lambdaPath) => {
     const content = `
@@ -29,10 +27,8 @@ const createNpmPackageFile = (lambdaPath) => {
     `;
 
     const npmPackagePath = path.join(lambdaPath,'package.json');
-    if (!fs.existsSync(npmPackagePath)) {
-        fs.writeFileSync(npmPackagePath, content);
-    }
-}
+    fs.writeFileSync(npmPackagePath, content);
+};
 
 const explore = (pagesDir,functionDir) => {
     mkdir(functionDir);

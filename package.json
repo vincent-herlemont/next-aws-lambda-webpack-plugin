@@ -20,9 +20,11 @@
   ],
   "author": "Vincent Herlemont",
   "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  },
   "devDependencies": {
     "directory-tree": "^2.2.4",
-    "fs-extra": "^8.1.0",
     "jest": "^25.1.0",
     "tmp": "^0.1.0"
   }

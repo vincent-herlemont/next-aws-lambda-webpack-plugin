@@ -2,6 +2,8 @@ const path = require('path');
 const {mkdir,assertExistDirectory} = require('./utils');
 const buildLambda = require('./lambda');
 const buildLayer = require('./layer');
+const efs = require('fs-extra');
+
 
 const workflow = (context,dev,isServer) => {
     if (!isServer || dev) {return}
@@ -13,6 +15,7 @@ const workflow = (context,dev,isServer) => {
     mkdir(lambdasDir);
 
     const functionDir = path.join(lambdasDir, 'function' );
+    efs.removeSync(functionDir);
     mkdir(functionDir);
 
     buildLambda(pagesDir,functionDir);
