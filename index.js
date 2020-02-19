@@ -10,16 +10,18 @@ const DefaultOptions = {
  */
 class AwsLambdaGenerator {
 
-    constructor(dev,isServer,options) {
+    constructor(nextJsConfig,options) {
+        const {dev,isServer,config:{distDir}} = nextJsConfig;
         this.dev = dev;
         this.isServer = isServer;
+        this.nextDistDir = distDir;
         this.options = Object.assign(DefaultOptions,options);
     }
 
     apply(compiler) {
         const {context} = compiler;
         compiler.hooks.done.tap('AwsLambda', () => {
-            workflow(context,this.dev,this.isServer,this.options);
+            workflow(context,this.dev,this.isServer,this.nextDistDir,this.options);
         });
     }
 }

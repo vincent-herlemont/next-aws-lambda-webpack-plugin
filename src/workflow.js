@@ -5,10 +5,10 @@ const buildLayer = require('./layer');
 const efs = require('fs-extra');
 
 
-const workflow = (context,dev,isServer,options) => {
+const workflow = (context,dev,isServer,nextDistDir,options) => {
     if (!isServer || dev) {return}
 
-    const pagesDir = path.join(context, '/.next/serverless/pages/');
+    const pagesDir = path.join(context, nextDistDir,'/serverless/pages/');
     assertExistDirectory(pagesDir);
 
     const lambdasDir = path.join(context, options.distDir);
