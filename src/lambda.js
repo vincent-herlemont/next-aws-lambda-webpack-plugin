@@ -30,7 +30,7 @@ const createNpmPackageFile = (lambdaPath) => {
     fs.writeFileSync(npmPackagePath, content);
 };
 
-const explore = (pagesDir,functionDir) => {
+const explore = (pagesDir,functionDir,prefix) => {
     mkdir(functionDir);
 
     fs.readdir(pagesDir, (err, entries) => {
@@ -40,12 +40,12 @@ const explore = (pagesDir,functionDir) => {
             pathEntry = path.join(pagesDir,entry);
 
             if (fs.statSync(pathEntry).isDirectory()) {
-                explore(pathEntry,path.join(functionDir,entry));
+                explore(pathEntry,path.join(functionDir,entry),prefix);
                 return
             }
 
             if (path.extname(entry) === '.js') {
-                const lambdaPath = path.join(functionDir,`f_${path.parse(entry).name}`);
+                const lambdaPath = path.join(functionDir,`${prefix}_${path.parse(entry).name}`);
                 mkdir(lambdaPath);
                 fs.copyFileSync(pathEntry,path.join(lambdaPath,entry));
 

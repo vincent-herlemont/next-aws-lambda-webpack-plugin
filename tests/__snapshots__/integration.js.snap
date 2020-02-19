@@ -23,7 +23,7 @@ Object {
               "type": "file",
             },
           ],
-          "name": "f__error",
+          "name": "l__error",
           "type": "directory",
         },
         Object {
@@ -44,7 +44,7 @@ Object {
               "type": "file",
             },
           ],
-          "name": "f_index",
+          "name": "l_index",
           "type": "directory",
         },
         Object {
@@ -69,7 +69,7 @@ Object {
                       "type": "file",
                     },
                   ],
-                  "name": "f_profile",
+                  "name": "l_profile",
                   "type": "directory",
                 },
               ],
@@ -81,7 +81,7 @@ Object {
           "type": "directory",
         },
       ],
-      "name": "function",
+      "name": "lambda",
       "type": "directory",
     },
     Object {

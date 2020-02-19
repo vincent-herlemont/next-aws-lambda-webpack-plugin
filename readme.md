@@ -50,14 +50,15 @@ module.exports = {
 
 #### Options
 
-| Plugin Options | Required | Default    | Description                   |
-| -------------- | -------- | ---------- | ----------------------------- |
-| distDir        | No       | out_lambda | Custom lambda build directory |
+| Plugin Options | Required | Default      | Description                            |
+| -------------- | -------- | ----------   | -------------------------------------  |
+| distDir        | No       | "out_lambda" | Custom lambda build directory.         |
+| prefix         | No       | "l"          | Prefix apply to each lambda directory. |
 
 Example:
 ```Javascript
 new AwsLambdaGenerator(dev,isServer,{
-    distDir:'lambda_build'
+    distDir: 'lambda_build'
 })
 ```
 

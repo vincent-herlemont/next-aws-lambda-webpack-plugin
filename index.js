@@ -2,6 +2,7 @@ const workflow = require('./src/workflow');
 
 const DefaultOptions = {
     distDir:"out_lambda",
+    prefix:"l",
 };
 
 /**

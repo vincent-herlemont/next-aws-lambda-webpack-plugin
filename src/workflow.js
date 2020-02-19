@@ -14,11 +14,11 @@ const workflow = (context,dev,isServer,options) => {
     const lambdasDir = path.join(context, options.distDir);
     mkdir(lambdasDir);
 
-    const functionDir = path.join(lambdasDir, 'function' );
+    const functionDir = path.join(lambdasDir, 'lambda' );
     efs.removeSync(functionDir);
     mkdir(functionDir);
 
-    buildLambda(pagesDir,functionDir);
+    buildLambda(pagesDir,functionDir,options.prefix);
 
     const layerDir = path.join(lambdasDir, 'layer' );
     mkdir(layerDir);
