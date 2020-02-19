@@ -1,4 +1,4 @@
-name: integration test
+name: integration test next@canary
 
 on: [push]
 
@@ -18,6 +18,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm test
+    - run: npm run test -- tests/integration.js --version="canary"
       env:
         CI: true

@@ -4,6 +4,8 @@ const path = require('path');
 const dirTree = require("directory-tree");
 const {execSync} = require('child_process');
 
+const VERSION = require("minimist")(process.argv.slice(2))["version"];
+
 let tmpDir;
 beforeEach(async () => {
     tmpDir = await createTmp();
@@ -56,15 +58,16 @@ const syncExampleDirectory = (tmpDirPath) => {
 };
 
 const createPackageFile = (tmpDirPath) => {
+    const version = VERSION !== undefined ? VERSION : "latest";
     const packageFileContent = `
 {
   "scripts": {
     "build": "next build"
   },
   "dependencies": {
-    "next": "9.2.1",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
+    "next": "${version}",
+    "react": "latest",
+    "react-dom": "latest",
     "next-aws-lambda-webpack-plugin": "file:${path.join(__dirname,"../")}"
   }
 }

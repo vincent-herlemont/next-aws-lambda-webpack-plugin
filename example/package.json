@@ -8,9 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "9.2.1",
+    "next": "latest",
     "next-aws-lambda-webpack-plugin": "file:../",
-    "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react": "latest",
+    "react-dom": "latest"
   }
 }
