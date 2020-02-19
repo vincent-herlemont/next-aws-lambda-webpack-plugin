@@ -9,7 +9,7 @@ After that, you can to use functions with the [AWS cloudformation template](http
 This plugin use [next-aws-lambda](https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/next-aws-lambda) package,
  create by and for the [serverless](https://serverless.com/) community :heart:.
 
-[![next-aws-lambda-webpack-plugin](./assets/next-aws-lambda-webpack-plugin.png)](https://www.npmjs.com/package/next-aws-lambda-webpack-plugin)
+![next-aws-lambda-webpack-plugin](./assets/next-aws-lambda-webpack-plugin.png)]
 
 
 ### Requirement
