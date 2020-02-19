@@ -33,7 +33,9 @@ Add the plugin to the Next.JS ([next.config.js](https://nextjs.org/docs/api-refe
 | ------------------- |:-------------:|-----------|
 | dev                 | YES           | from#[next.config.js](https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config) - Indicates if the compilation will be done in development         |
 | isServer            | YES           | from#[next.config.js](https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config) - It's true for server-side compilation, and false for client-side compilation          |
+| options             | NO            | [see options](#options) |
 
+Example:
 ```Javascript
 const AwsLambdaGenerator = require('next-aws-lambda-webpack-plugin');
 
@@ -44,6 +46,19 @@ module.exports = {
         return config
     },
 };
+```
+
+#### Options
+
+| Plugin Options | Required | Default    | Description                   |
+| -------------- | -------- | ---------- | ----------------------------- |
+| distDir        | No       | out_lambda | Custom lambda build directory |
+
+Example:
+```Javascript
+new AwsLambdaGenerator(dev,isServer,{
+    distDir:'lambda_build'
+})
 ```
 
 
