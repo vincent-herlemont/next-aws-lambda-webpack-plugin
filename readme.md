@@ -9,9 +9,8 @@ After that, you can to use functions with the [AWS cloudformation template](http
 This plugin use [next-aws-lambda](https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/next-aws-lambda) package,
  create by and for the [serverless](https://serverless.com/) community :heart:.
 
-![next-aws-lambda-webpack-plugin](./assets/next-aws-lambda-webpack-plugin.png)]
-
-
+![next-aws-lambda-webpack-plugin](./assets/next-aws-lambda-webpack-plugin.png)
+ 
 ### Requirement
 
 1. Use [Next.JS](https://nextjs.org/docs/getting-started) CLI for build your project (`next build`)
@@ -63,13 +62,13 @@ module.exports = {
 
 Example:
 ```Javascript
-new AwsLambdaGenerator(dev,isServer,{
+//...snip...
+new AwsLambdaGenerator(nextConfig,{
     distDir: 'lambda_build'
 })
+//...snip...
 ```
 
-
 ### Example
-
 
 ([see](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/tree/master/example)) TODO
