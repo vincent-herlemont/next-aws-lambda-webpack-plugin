@@ -1,6 +1,8 @@
 name: integration test next@canary
 
-on: [push]
+on:
+  schedule:
+    - cron:  '0 19 * * *'
 
 jobs:
   build:
