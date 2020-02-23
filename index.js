@@ -20,8 +20,8 @@ class AwsLambdaGenerator {
 
     apply(compiler) {
         const {context} = compiler;
-        compiler.hooks.done.tap('AwsLambda', () => {
-            workflow(context,this.dev,this.isServer,this.nextDistDir,this.options);
+        compiler.hooks.done.tapPromise('AwsLambda', () => {
+            return workflow(context, this.dev, this.isServer, this.nextDistDir, this.options);
         });
     }
 }

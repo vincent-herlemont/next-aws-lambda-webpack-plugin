@@ -5,7 +5,7 @@ const buildLayer = require('./layer');
 const efs = require('fs-extra');
 
 
-const workflow = (context,dev,isServer,nextDistDir,options) => {
+const workflow = async (context,dev,isServer,nextDistDir,options) => {
     if (!isServer || dev) {return}
 
     const pagesDir = path.join(context, nextDistDir,'/serverless/pages/');
@@ -23,7 +23,7 @@ const workflow = (context,dev,isServer,nextDistDir,options) => {
     const layerDir = path.join(lambdasDir, 'layer' );
     mkdir(layerDir);
 
-    buildLayer(layerDir);
+    await buildLayer(layerDir);
 };
 
 module.exports = workflow;
