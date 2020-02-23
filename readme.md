@@ -4,7 +4,7 @@
 [![integration test next@latest](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test%20next@latest/badge.svg?branch=master)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions)
 
 This plugin will generate aws-lambda compatible function for each [Next.JS pages](https://nextjs.org/docs/basic-features/pages). 
-After that, you can to use functions with the [AWS cloudformation template](https://aws.amazon.com/cloudformation/resources/templates/) or/and [AWS serverless template](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html).
+After that, you can to use theses functions with the [AWS cloudformation template](https://aws.amazon.com/cloudformation/resources/templates/) or/and [AWS serverless template](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html).
 
 This plugin use [next-aws-lambda](https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/next-aws-lambda) package,
  create by and for the [serverless](https://serverless.com/) community :heart:.
@@ -28,7 +28,7 @@ This plugin use [next-aws-lambda](https://github.com/danielcondemarin/serverless
 
 Use npm :
 ```
-npm install next-aws-lambda-webpack-plugin
+npm install --save-dev next-aws-lambda-webpack-plugin
 ```
 
 ### Configuration

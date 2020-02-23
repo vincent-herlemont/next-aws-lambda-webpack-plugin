@@ -67,7 +67,9 @@ const createPackageFile = (tmpDirPath) => {
   "dependencies": {
     "next": "${version}",
     "react": "latest",
-    "react-dom": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
     "next-aws-lambda-webpack-plugin": "file:${path.join(__dirname,"../")}"
   }
 }

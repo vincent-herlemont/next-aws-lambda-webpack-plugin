@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "next": "latest",
-    "next-aws-lambda-webpack-plugin": "file:../",
     "react": "latest",
     "react-dom": "latest"
+  },
+  "devDependencies": {
+    "next-aws-lambda-webpack-plugin": "file:../"
   }
 }
