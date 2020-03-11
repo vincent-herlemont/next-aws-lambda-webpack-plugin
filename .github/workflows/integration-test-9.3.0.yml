@@ -1,4 +1,4 @@
-name: integration test next@9.2.2
+name: integration test next@9.3.0
 
 on: [push]
 
@@ -18,6 +18,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm run test -- tests/integration.js --version="9.2.2"
+    - run: npm run test -- tests/integration.js --version="9.3.0"
       env:
         CI: true
