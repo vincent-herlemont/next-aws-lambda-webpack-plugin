@@ -31,8 +31,6 @@ Use npm :
 npm install --save-dev next-aws-lambda-webpack-plugin
 ```
 
-### Configuration
-
 Add the plugin to the Next.JS ([next.config.js](https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config)) configuration file.
 
 | Plugin Arguments    |Required       |Description|
