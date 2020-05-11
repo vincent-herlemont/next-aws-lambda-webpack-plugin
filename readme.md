@@ -69,4 +69,4 @@ new AwsLambdaGenerator(nextConfig,{
 
 ### Example
 
-([see](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/tree/master/example)) TODO
+:walking: : ([Step by Step example](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/tree/master/example))
