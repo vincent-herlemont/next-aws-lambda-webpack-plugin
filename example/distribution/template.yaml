@@ -1,0 +1,60 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Example next-aws-lambda-webpack-plugin
+
+Resources:
+  # ---- DISTRIBUTION ----
+  Bucket:
+    Type: AWS::S3::Bucket
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        PriceClass: PriceClass_100
+        Enabled: true
+        Origins:
+          - Id: !Ref Bucket
+            DomainName: !GetAtt Bucket.DomainName
+            S3OriginConfig: {}
+        DefaultCacheBehavior:
+          TargetOriginId: !Ref Bucket
+          ForwardedValues:
+            QueryString: true
+          ViewerProtocolPolicy: redirect-to-https
+          LambdaFunctionAssociations:
+            - EventType: viewer-request
+              LambdaFunctionARN: !Ref CloudfrontRouterRoleV1
+
+  # ---- EDGE ----
+
+  CloudfrontRouterRoleV1:
+    Type: AWS::Lambda::Version
+    Properties:
+      FunctionName: !GetAtt CloudfrontRouter.Arn
+
+  CloudfrontRouter:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt CloudfrontRouterRole.Arn
+      Handler: index.handler
+      Runtime: nodejs12.x
+      CodeUri: router/
+      Description: >-
+        Blueprint for generating a response from viewer-request trigger implemented in NodeJS.
+      MemorySize: 128
+      Timeout: 1
+
+  CloudfrontRouterRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+                - edgelambda.amazonaws.com
+            Action:
+              - sts:AssumeRole

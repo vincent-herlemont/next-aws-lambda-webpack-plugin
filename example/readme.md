@@ -30,3 +30,8 @@ For **Reset** the project :
 $> npm run raz
 ```
 That delete all generated file (_sam configuration included_).
+
+
+# Deploy with distribution
+
+###TODO

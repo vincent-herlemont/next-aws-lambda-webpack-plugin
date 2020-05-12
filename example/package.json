@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "raz": "rm -rf node_modules && rm -rf out_lambda && rm -rf .next && rm -rf out && rm -rf .aws-sam && rm -rf samconfig.toml"
   },
