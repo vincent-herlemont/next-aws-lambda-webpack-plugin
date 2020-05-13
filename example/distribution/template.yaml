@@ -2,10 +2,27 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Example next-aws-lambda-webpack-plugin
 
+
 Resources:
   # ---- DISTRIBUTION ----
   Bucket:
     Type: AWS::S3::Bucket
+    Properties:
+      WebsiteConfiguration:
+        IndexDocument: "index.html"
+        ErrorDocument: "error.html"
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref Bucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: "Allow"
+            Principal: "*"
+            Action: "s3:GetObject"
+            Resource: !Join ["",[!GetAtt Bucket.Arn, "/*" ]]
 
   Distribution:
     Type: AWS::CloudFront::Distribution
@@ -17,18 +34,22 @@ Resources:
           - Id: !Ref Bucket
             DomainName: !GetAtt Bucket.DomainName
             S3OriginConfig: {}
+
         DefaultCacheBehavior:
           TargetOriginId: !Ref Bucket
           ForwardedValues:
             QueryString: true
+            Cookies:
+              Forward: whitelist
+              WhitelistedNames: [ NEXT_SSR ]
           ViewerProtocolPolicy: redirect-to-https
           LambdaFunctionAssociations:
-            - EventType: viewer-request
-              LambdaFunctionARN: !Ref CloudfrontRouterRoleV1
+            - EventType: origin-request
+              LambdaFunctionARN: !Ref CloudfrontRouterV5
 
-  # ---- EDGE ----
+  # ---- Router ----
 
-  CloudfrontRouterRoleV1:
+  CloudfrontRouterV5:
     Type: AWS::Lambda::Version
     Properties:
       FunctionName: !GetAtt CloudfrontRouter.Arn
@@ -36,7 +57,7 @@ Resources:
   CloudfrontRouter:
     Type: AWS::Serverless::Function
     Properties:
-      Role: !GetAtt CloudfrontRouterRole.Arn
+      Role: !GetAtt CloudfrontEdgeRole.Arn
       Handler: index.handler
       Runtime: nodejs12.x
       CodeUri: router/
@@ -45,7 +66,9 @@ Resources:
       MemorySize: 128
       Timeout: 1
 
-  CloudfrontRouterRole:
+  # ---- Role ----
+
+  CloudfrontEdgeRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
@@ -58,3 +81,12 @@ Resources:
                 - edgelambda.amazonaws.com
             Action:
               - sts:AssumeRole
+      Policies:
+        - PolicyName: log
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:*
+                Resource: arn:aws:logs:*:*:*

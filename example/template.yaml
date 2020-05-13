@@ -27,7 +27,7 @@ Resources:
         HelloWorld:
           Type: Api
           Properties:
-            Path: /index
+            Path: /
             Method: get
 
   ProfileFunction:
@@ -54,3 +54,8 @@ Resources:
       CompatibleRuntimes:
         - nodejs12.x
       RetentionPolicy: Retain
+
+Outputs:
+  ApiURL:
+    Description: "API endpoint"
+    Value: !Sub "${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com"

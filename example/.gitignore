@@ -20,6 +20,7 @@ package-lock.json
 /.aws-sam/
 samconfig.toml
 template.zip
+/distribution/router/parameters.js
 
 # production
 /build
