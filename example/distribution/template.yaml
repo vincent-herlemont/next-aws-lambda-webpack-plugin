@@ -4,7 +4,9 @@ Description: Example next-aws-lambda-webpack-plugin
 
 
 Resources:
+
   # ---- DISTRIBUTION ----
+
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -37,6 +39,8 @@ Resources:
 
         DefaultCacheBehavior:
           TargetOriginId: !Ref Bucket
+          MaxTTL: 0
+          MinTTL: 0
           ForwardedValues:
             QueryString: true
             Cookies:
@@ -45,11 +49,11 @@ Resources:
           ViewerProtocolPolicy: redirect-to-https
           LambdaFunctionAssociations:
             - EventType: origin-request
-              LambdaFunctionARN: !Ref CloudfrontRouterV5
+              LambdaFunctionARN: !Ref CloudfrontRouterV6
 
-  # ---- Router ----
+  # ---- ROUTER ----
 
-  CloudfrontRouterV5:
+  CloudfrontRouterV6:
     Type: AWS::Lambda::Version
     Properties:
       FunctionName: !GetAtt CloudfrontRouter.Arn

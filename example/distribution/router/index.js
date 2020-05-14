@@ -1,5 +1,5 @@
 'use strict';
-const {SSR_API_GATEWAY_DNS,SSR_WHITELIST} = require('./parameters');
+const {SSR_API_GATEWAY_DNS,SSR_PAGES} = require('./parameters');
 
 function setCustomOrigin(request,host) {
  const origin = request.origin ? request.origin : {};
@@ -49,10 +49,8 @@ function setS3Origin(request) {
 }
 
 function checkSSR(uri) {
-// (new RegExp("people/.*/profile")).exec("people/daslkdjaslad/profile");
-// "people/[name]/profile".replace(/\[.+\]/,".*");
-// (new RegExp("^/people/.*/profile$")).exec("/people/daslkdjaslad/profile");
- for (const path of SSR_WHITELIST) {
+ uri = uri === "/" ? "/index" : uri;
+ for (const path of SSR_PAGES) {
   console.log("path",path)
   let regex = `^${path.replace(/\[.+\]/,".*")}$`;
   console.log("regex",regex);
