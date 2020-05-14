@@ -57,6 +57,7 @@ module.exports = {
 | -------------- | -------- | ----------   | -------------------------------------  |
 | distDir        | No       | "out_lambda" | Custom lambda build directory.         |
 | prefix         | No       | "l"          | Prefix apply to each lambda directory. |
+| pages          | No       | []           | A whitelist who specified SSR pages. If empty array is specified all pages are generated. |
 
 Example:
 ```Javascript
