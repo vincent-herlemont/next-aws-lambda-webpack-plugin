@@ -8,7 +8,7 @@
         "request": {
           "uri": "/people/paul/profile",
           "method": "GET",
-          "clientIp": "2001:cdba::3257:9652",
+          "clientIp": "0000:0000::0000:0000",
           "headers": {
             "host": [
               {
@@ -33,7 +33,7 @@
             "s3": {
               "authMethod": "none",
               "customHeaders": {},
-              "domainName": "sam-app-2-bucket-en88eaky09dv.s3.amazonaws.com",
+              "domainName": "bucket.s3.amazonaws.com",
               "path": ""
             }
           }

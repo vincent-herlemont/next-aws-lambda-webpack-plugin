@@ -41,6 +41,7 @@ Resources:
           TargetOriginId: !Ref Bucket
           MaxTTL: 0
           MinTTL: 0
+          DefaultTTL: 0
           ForwardedValues:
             QueryString: true
             Cookies:
@@ -49,11 +50,11 @@ Resources:
           ViewerProtocolPolicy: redirect-to-https
           LambdaFunctionAssociations:
             - EventType: origin-request
-              LambdaFunctionARN: !Ref CloudfrontRouterV6
+              LambdaFunctionARN: !Ref CloudfrontRouterV9
 
   # ---- ROUTER ----
 
-  CloudfrontRouterV6:
+  CloudfrontRouterV9:
     Type: AWS::Lambda::Version
     Properties:
       FunctionName: !GetAtt CloudfrontRouter.Arn
@@ -94,3 +95,8 @@ Resources:
                 Action:
                   - logs:*
                 Resource: arn:aws:logs:*:*:*
+
+Outputs:
+  BucketName:
+    Description: "S3 bucket name"
+    Value: !Ref Bucket

@@ -67,6 +67,6 @@ new AwsLambdaGenerator(nextConfig,{
 //...snip...
 ```
 
-### Example
+### Example with CloudFront Distribution
 
-:walking: : ([Step by Step example](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/tree/master/example))
+[![cloud-front-distribution-example](./assets/cloud-front-distribution-example.png)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/tree/master/example))

@@ -7,6 +7,7 @@ function setCustomOrigin(request,host) {
  if (request.origin.s3) {
   delete request.origin.s3;
  }
+ request.uri = request.uri === '/' ? '/index' : request.uri;
  request.headers['host'] = [{key: 'host', value: host}];
  
  origin.custom = {
@@ -40,7 +41,7 @@ function setS3Origin(request) {
  if (request.origin.custom) {
   delete request.origin.custom;
  }
- 
+ console.log("request.uri",request.uri);
  if (request.uri.match(/\/$/)) {
   request.uri = `${request.uri}index.html`
  } else if (request.uri.match(/\/(.+\.[^\/]+)$/) === null) {
@@ -56,8 +57,11 @@ function checkSSR(uri) {
   console.log("regex",regex);
   let result_regex = (new RegExp(regex)).exec(uri);
   console.log("result_regex",result_regex);
-  return result_regex !== null;
+  if (result_regex !== null) {
+   return true;
+  }
  }
+ return false;
 }
 
 exports.handler = (event, context, callback) => {
@@ -65,12 +69,10 @@ exports.handler = (event, context, callback) => {
  console.log('INTPUT');
  console.log(JSON.stringify(request,0,1));
  
- if (request.headers) {
-  if (checkSSR(request.uri)) {
-   setCustomOrigin(request,SSR_API_GATEWAY_DNS)
-  } else {
-   setS3Origin(request)
-  }
+ if (checkSSR(request.uri)) {
+  setCustomOrigin(request,SSR_API_GATEWAY_DNS)
+ } else {
+  setS3Origin(request)
  }
  
  console.log('OUTPUT');

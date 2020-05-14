@@ -27,7 +27,7 @@ Resources:
         HelloWorld:
           Type: Api
           Properties:
-            Path: /
+            Path: /index
             Method: get
 
   ProfileFunction:
