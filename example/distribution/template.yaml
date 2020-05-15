@@ -9,10 +9,6 @@ Resources:
 
   Bucket:
     Type: AWS::S3::Bucket
-    Properties:
-      WebsiteConfiguration:
-        IndexDocument: "index.html"
-        ErrorDocument: "error.html"
 
   BucketPolicy:
     Type: AWS::S3::BucketPolicy
@@ -22,9 +18,16 @@ Resources:
         Version: '2012-10-17'
         Statement:
           - Effect: "Allow"
-            Principal: "*"
+            Principal:
+              CanonicalUser: !GetAtt CloudFrontOriginAccessIdEntity.S3CanonicalUserId
             Action: "s3:GetObject"
             Resource: !Join ["",[!GetAtt Bucket.Arn, "/*" ]]
+
+  CloudFrontOriginAccessIdEntity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: "access-static-file"
 
   Distribution:
     Type: AWS::CloudFront::Distribution
@@ -35,8 +38,8 @@ Resources:
         Origins:
           - Id: !Ref Bucket
             DomainName: !GetAtt Bucket.DomainName
-            S3OriginConfig: {}
-
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOriginAccessIdEntity}"
         DefaultCacheBehavior:
           TargetOriginId: !Ref Bucket
           MaxTTL: 0
@@ -44,20 +47,10 @@ Resources:
           DefaultTTL: 0
           ForwardedValues:
             QueryString: true
-            Cookies:
-              Forward: whitelist
-              WhitelistedNames: [ NEXT_SSR ]
           ViewerProtocolPolicy: redirect-to-https
           LambdaFunctionAssociations:
             - EventType: origin-request
-              LambdaFunctionARN: !Ref CloudfrontRouterV9
-
-  # ---- ROUTER ----
-
-  CloudfrontRouterV9:
-    Type: AWS::Lambda::Version
-    Properties:
-      FunctionName: !GetAtt CloudfrontRouter.Arn
+              LambdaFunctionARN: !Ref CloudfrontRouter.Version
 
   CloudfrontRouter:
     Type: AWS::Serverless::Function
@@ -66,10 +59,10 @@ Resources:
       Handler: index.handler
       Runtime: nodejs12.x
       CodeUri: router/
-      Description: >-
-        Blueprint for generating a response from viewer-request trigger implemented in NodeJS.
+      Description: Router
       MemorySize: 128
       Timeout: 1
+      AutoPublishAlias: live
 
   # ---- Role ----
 
@@ -100,3 +93,6 @@ Outputs:
   BucketName:
     Description: "S3 bucket name"
     Value: !Ref Bucket
+  DistributionDns:
+    Description: "Distribution Dns"
+    Value: !GetAtt Distribution.DomainName

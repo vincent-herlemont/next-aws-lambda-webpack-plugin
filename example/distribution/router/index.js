@@ -52,11 +52,8 @@ function setS3Origin(request) {
 function checkSSR(uri) {
  uri = uri === "/" ? "/index" : uri;
  for (const path of SSR_PAGES) {
-  console.log("path",path)
   let regex = `^${path.replace(/\[.+\]/,".*")}$`;
-  console.log("regex",regex);
   let result_regex = (new RegExp(regex)).exec(uri);
-  console.log("result_regex",result_regex);
   if (result_regex !== null) {
    return true;
   }
@@ -66,6 +63,7 @@ function checkSSR(uri) {
 
 exports.handler = (event, context, callback) => {
  const request = event.Records[0].cf.request;
+ 
  console.log('INTPUT');
  console.log(JSON.stringify(request,0,1));
  
