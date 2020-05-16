@@ -52,7 +52,7 @@ const syncExampleDirectory = (tmpDirPath) => {
     fs.copySync(localExamplePath,tmpDirPath,{
         filter:(entry) => {
             return !!path.relative(__dirname,entry)
-                .match(/^..\/example\/?((pages|public|next\.config\.js).*)?$/g);
+                .match(/^..\/example\/?((pages|distribution|public|next\.config\.js).*)?$/g);
         }
     });
 };

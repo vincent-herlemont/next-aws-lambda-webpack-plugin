@@ -9,27 +9,6 @@ Object {
           "children": Array [
             Object {
               "extension": ".js",
-              "name": "_error.js",
-              "type": "file",
-            },
-            Object {
-              "extension": ".js",
-              "name": "handler.js",
-              "type": "file",
-            },
-            Object {
-              "extension": ".json",
-              "name": "package.json",
-              "type": "file",
-            },
-          ],
-          "name": "l__error",
-          "type": "directory",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "extension": ".js",
               "name": "handler.js",
               "type": "file",
             },

@@ -1,0 +1,44 @@
+{
+  "Records": [
+    {
+      "cf": {
+        "config": {
+          "distributionId": "EXAMPLE"
+        },
+        "request": {
+          "uri": "/people/paul/profile",
+          "method": "GET",
+          "clientIp": "0000:0000::0000:0000",
+          "headers": {
+            "host": [
+              {
+                "key": "Host",
+                "value": "d123.cf.net"
+              }
+            ],
+            "cloudfront-viewer-country": [
+              {
+                "key": "CloudFront-Viewer-Country",
+                "value": "TW"
+              }
+            ],
+            "cookie": [
+              {
+                "key": "Cookie",
+                "value": "NEXT_SSR=false"
+              }
+            ]
+          },
+          "origin": {
+            "s3": {
+              "authMethod": "none",
+              "customHeaders": {},
+              "domainName": "bucket.s3.amazonaws.com",
+              "path": ""
+            }
+          }
+        }
+      }
+    }
+  ]
+}

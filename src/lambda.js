@@ -30,7 +30,19 @@ const createNpmPackageFile = (lambdaPath) => {
     fs.writeFileSync(npmPackagePath, content);
 };
 
-const explore = (pagesDir,functionDir,prefix) => {
+const inPages = (pathEntry,pages) => {
+    if (pages.length === 0) {return true}
+    const pathEntryRel = pathEntry.replace(/^(.*?)\.next\/serverless\/pages/,"").replace(/\.js$/,"")
+    for (page of pages) {
+        if (pathEntryRel === page) {
+            return true;
+        }
+    }
+    return false;
+}
+
+const explore = (pagesDir,functionDir,options) => {
+    const {prefix,pages} = options;
     mkdir(functionDir);
 
     fs.readdir(pagesDir, (err, entries) => {
@@ -38,13 +50,13 @@ const explore = (pagesDir,functionDir,prefix) => {
 
         entries.forEach((entry) => {
             pathEntry = path.join(pagesDir,entry);
-
+            
             if (fs.statSync(pathEntry).isDirectory()) {
-                explore(pathEntry,path.join(functionDir,entry),prefix);
+                explore(pathEntry,path.join(functionDir,entry),options);
                 return
             }
 
-            if (path.extname(entry) === '.js') {
+            if (path.extname(entry) === '.js' && inPages(pathEntry,pages)) {
                 const lambdaPath = path.join(functionDir,`${prefix}_${path.parse(entry).name}`);
                 mkdir(lambdaPath);
                 fs.copyFileSync(pathEntry,path.join(lambdaPath,entry));
@@ -56,4 +68,4 @@ const explore = (pagesDir,functionDir,prefix) => {
     });
 };
 
-module.exports = explore;
+module.exports = {explore,inPages};
