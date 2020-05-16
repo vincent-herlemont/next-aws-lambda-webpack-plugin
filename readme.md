@@ -6,7 +6,7 @@
 This plugin will generate aws-lambda compatible function for each [Next.JS pages](https://nextjs.org/docs/basic-features/pages). 
 After that, you can to use theses functions with the [AWS cloudformation template](https://aws.amazon.com/cloudformation/resources/templates/) or/and [AWS serverless template](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html).
 
-This plugin use [next-aws-lambda](https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/next-aws-lambda) package,
+This plugin use [next-aws-lambda](https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/apigw-lambda-compat) package,
  create by and for the [serverless](https://serverless.com/) community :heart:.
 
 :point_right: **[Here a full implementation example (step by step)](./example)**
@@ -24,7 +24,7 @@ This plugin use [next-aws-lambda](https://github.com/danielcondemarin/serverless
 | --------------- | ----- |
 | canary          | [![integration test next@canary](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test%20next@canary/badge.svg)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions) |
 | latest          | [![integration test next@latest](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test%20next@latest/badge.svg?branch=master)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions) |
-| 9.3.0           | [![integration test next@latest](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test%20next@9.3.0/badge.svg?branch=master)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions) |
+| 9.4.0           | [![integration test next@latest](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test%20next@9.3.0/badge.svg?branch=master)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions) |
 
 # Install
 
