@@ -69,3 +69,10 @@ new AwsLambdaGenerator(nextConfig,{
 })
 //...snip...
 ```
+
+# Architecture Example
+
+:point_right: **[Go to example](./example)**
+
+![cloud-front-distribution-example](./assets/cloud-front-distribution-example.png)
+

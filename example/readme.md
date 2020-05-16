@@ -1,6 +1,7 @@
 ![cloud-front-distribution-example](../assets/cloud-front-distribution-example.png)
 
-# 1) Install Api Gateway (SSR Rendering)
+# Install
+### 1) Api Gateway (SSR Rendering)
 
 Requirement : An aws account with [aws sam](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
 installed.
@@ -27,7 +28,7 @@ $> sam deploy --guided
 ```
 After you can use `sam deploy` without `--guided`.
 
-# 2) Install CloudFront Distribution (Routing And Static Rendering)
+### 2) CloudFront Distribution (Routing And Static Rendering)
 
 
 First configure the routing.
@@ -73,17 +74,32 @@ Now you have the bucket name, you can sync the `out/` generate by NextJS.
 ```
 $> aws s3 sync --delete out/ s3://<bucket_name>
 ```
-:point_right: For most deployment, **static assets generation** and **s3 synchronisation** have to be executed.
 
 Now you can display the website in your cloudfront endpoint `https://<id>.cloudfront.net` . The following command to retrieve cloudfront dns. (Set `stack-name` parameters).
 ```
 $> aws --region us-east-1 cloudformation describe-stacks --stack-name <stack-name> --query 'Stacks[0].Outputs[?OutputKey==`DistributionDns`].OutputValue' --output text
 ```
 
+
+#  Deployment
+
+For most deployment, some steps have to be executed.
+:point_right: You can make a deployment script for automate all the workflow.
+
+Static website
+-  **static assets generation** `$> npm run export`
+-  **s3 synchronisation** `$> aws s3 sync --delete out/ s3://<bucket_name>`
+
+SSR
+- **deploy api gateway** `$> sam deploy`
+
+Router
+- **deploy distribution** `$ distribution > sam deploy`
+
 ---
-For **Reset** the project :
+# RAZ
 ```
 $> npm run raz
 ```
-That delete all generated file (_sam configuration included_).
+That delete all generated files (_sam configuration included_).
 
