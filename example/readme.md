@@ -1,6 +1,9 @@
 ![cloud-front-distribution-example](../assets/cloud-front-distribution-example.png)
 
 # Install
+
+Clone the project and go to [example folder](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/tree/master/example)
+
 ### 1) Api Gateway (SSR Rendering)
 
 Requirement : An aws account with [aws sam](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
@@ -53,7 +56,7 @@ $> aws --region <region> cloudformation describe-stacks --stack-name <stack-name
 Now you have retrieved the dns, you can edit `SSR_API_GATEWAY_DNS` in `parameters.js`
 - **SSR_PAGES** : This is the whitelist of pages that will routing to api gateway for SSR Rendering.
 
-Seconds go to the `distribution` folder, and deploy the project with `sam` on `us-east-1` aws region :
+Seconds go to the [`distribution` folder](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/tree/master/example/distribution), and deploy the project with `sam` on `us-east-1` aws region :
 it's mandatory for deploy lambda@edge function.
 ```
 $> cd distribution

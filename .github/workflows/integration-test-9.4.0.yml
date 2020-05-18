@@ -1,4 +1,4 @@
-name: integration test next@9.3.0
+name: integration test next@9.4.0
 
 on: [push]
 

@@ -9,7 +9,7 @@ After that, you can to use theses functions with the [AWS cloudformation templat
 This plugin use [next-aws-lambda](https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/apigw-lambda-compat) package,
  create by and for the [serverless](https://serverless.com/) community :heart:.
 
-:point_right: **[Here a full implementation example (step by step)](./example)**
+:point_right: **[Here a full implementation example (step by step)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/blob/master/example/readme.md)**
 
 ![next-aws-lambda-webpack-plugin](./assets/next-aws-lambda-webpack-plugin.png)
  
@@ -72,7 +72,7 @@ new AwsLambdaGenerator(nextConfig,{
 
 # Architecture Example
 
-:point_right: **[Go to example](./example)**
+:point_right: **[Go to example](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/blob/master/example/readme.md)**
 
-![cloud-front-distribution-example](./assets/cloud-front-distribution-example.png)
+[![cloud-front-distribution-example](./assets/cloud-front-distribution-example.png)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/blob/master/example/readme.md)
 
