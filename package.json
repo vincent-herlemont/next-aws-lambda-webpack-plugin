@@ -1,6 +1,6 @@
 {
   "name": "next-aws-lambda-webpack-plugin",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Pack a compat layer between next.js serverless page and AWS Lambda.",
   "main": "index.js",
   "homepage": "https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin",
@@ -21,7 +21,7 @@
   "author": "Vincent Herlemont",
   "license": "ISC",
   "dependencies": {
-    "fs-extra": "^9.0.0"
+    "fs-extra": "^9.0.1"
   },
   "devDependencies": {
     "directory-tree": "^2.2.4",
