@@ -6,7 +6,7 @@
 This plugin will generate aws-lambda compatible function for each [Next.JS pages](https://nextjs.org/docs/basic-features/pages). 
 After that, you can to use theses functions with the [AWS cloudformation template](https://aws.amazon.com/cloudformation/resources/templates/) or/and [AWS serverless template](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html).
 
-This plugin use [next-aws-lambda](https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/apigw-lambda-compat) package,
+This plugin use [next-aws-lambda](https://www.npmjs.com/package/next-aws-lambda) package,
  create by and for the [serverless](https://serverless.com/) community :heart:.
 
 :point_right: **[Here a full implementation example (step by step)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/blob/master/example/readme.md)**
