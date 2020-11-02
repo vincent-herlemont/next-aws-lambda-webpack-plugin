@@ -21,7 +21,7 @@ test('build example',async () => {
     syncExampleDirectory(tmpDirPath);
 
     createPackageFile(tmpDirPath);
-
+    
     run(tmpDirPath);
 
     const dirOutLambdaPath = path.join(tmpDirPath,'out_lambda');
@@ -66,8 +66,8 @@ const createPackageFile = (tmpDirPath) => {
   },
   "dependencies": {
     "next": "${version}",
-    "react": "latest",
-    "react-dom": "latest"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "devDependencies": {
     "next-aws-lambda-webpack-plugin": "file:${path.join(__dirname,"../")}"

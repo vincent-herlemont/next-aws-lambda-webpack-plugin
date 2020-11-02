@@ -10,9 +10,9 @@
     "raz": "rm -rf node_modules && rm -rf out_lambda && rm -rf .next && rm -rf out && rm -rf .aws-sam && rm -rf samconfig.toml"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "next": "^10.0.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "devDependencies": {
     "next-aws-lambda-webpack-plugin": "file:../"
