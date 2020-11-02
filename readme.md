@@ -24,6 +24,7 @@ This plugin use [next-aws-lambda](https://www.npmjs.com/package/next-aws-lambda)
 | --------------- | ----- |
 | canary          | [![integration test next@canary](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test%20next@canary/badge.svg)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions) |
 | latest          | [![integration test next@latest](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test%20next@latest/badge.svg?branch=master)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions) |
+| 10.0.0          | [![integration test next@latest](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test%20next@10.0.0/badge.svg?branch=master)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions) |
 | 9.5.0           | [![integration test next@latest](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test%20next@9.5.0/badge.svg?branch=master)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions) |
 | 9.4.0           | [![integration test next@latest](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/workflows/integration%20test%20next@9.4.0/badge.svg?branch=master)](https://github.com/vincent-herlemont/next-aws-lambda-webpack-plugin/actions) |
 
