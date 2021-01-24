@@ -1,4 +1,4 @@
-const NpmTest = require('./npm');
+const NpmTest = require("./npm");
 
 const truncated_data = `
 {
@@ -11,11 +11,11 @@ const truncated_data = `
 }
 `;
 
-test('get last version', async () => {
-    const npm = new NpmTest("toto");
-    const mockShow = jest.fn();
-    NpmTest.prototype.show = mockShow;
-    mockShow.mockReturnValue(Promise.resolve(JSON.parse(truncated_data)));
-    const lastVersion = await npm.getLastVersion();
-    expect(lastVersion).toEqual("2.3.4");
+test("get last version", async () => {
+  const npm = new NpmTest("toto");
+  const mockShow = jest.fn();
+  NpmTest.prototype.show = mockShow;
+  mockShow.mockReturnValue(Promise.resolve(JSON.parse(truncated_data)));
+  const lastVersion = await npm.getLastVersion();
+  expect(lastVersion).toEqual("2.3.4");
 });
