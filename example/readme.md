@@ -31,6 +31,8 @@ $> sam deploy --guided
 ```
 After you can use `sam deploy` without `--guided`.
 
+/!\ AWS sam troubleshooting : the s3 deployment bucket sometimes is not created, so you have to do it manually.
+
 ### 2) CloudFront Distribution (Routing And Static Rendering)
 
 
@@ -51,7 +53,7 @@ exports.SSR_PAGES = [
 - **SSR_API_GATEWAY_DNS** : [This is a REST APIs endpoint of Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-call-api.html).
 You can get this one with the following command (take care to specified `region` and `stack-name` of api gateway stack that you have specified before).
 ``` 
-$> aws --region <region> cloudformation describe-stacks --stack-name <stack-name> --query 'Stacks[0].Outputs[?OutputKey==`ApiURL`].OutputValue' --output text
+$> aws --region us-east-1 cloudformation describe-stacks --stack-name nextjs-10 --query "Stacks[0].Outputs[?OutputKey=='ApiURL'].OutputValue" --output text
 ```
 Now you have retrieved the dns, you can edit `SSR_API_GATEWAY_DNS` in `parameters.js`
 - **SSR_PAGES** : This is the whitelist of pages that will routing to api gateway for SSR Rendering.
