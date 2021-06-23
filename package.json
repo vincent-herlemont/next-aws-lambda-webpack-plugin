@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "directory-tree": "^2.2.5",
-    "jest": "^26.6.1",
+    "jest": "^27.0.5",
     "minimist": "^1.2.5",
     "prettier": "2.2.1",
     "tmp": "^0.2.1"
