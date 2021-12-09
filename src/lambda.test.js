@@ -10,7 +10,14 @@ test("check inSSRPages with pages", async () => {
     "/home/paul/work/next-aws-lambda-webpack-plugin/example/.next/serverless/pages/people/[name]/messages.js";
   expect(inPages(pathEntry, SSRPages)).toEqual(false);
 });
-
+test("check inSSRPages with pages on Windows", async () => {
+  let pathEntry =
+    "D:\\projects\\elephant\\.next\\serverless\\pages\\people\\[name]\\profile.js";
+  expect(inPages(pathEntry, SSRPages)).toEqual(true);
+  pathEntry =
+    "D:\\projects\\elephant\\.next\\serverless\\pages\\people\\[name]\\messages.js";
+  expect(inPages(pathEntry, SSRPages)).toEqual(false);
+});
 test("check inSSRPages with no pages", async () => {
   let pathEntry =
     "/home/paul/work/next-aws-lambda-webpack-plugin/example/.next/serverless/pages/people/[name]/profile.js";

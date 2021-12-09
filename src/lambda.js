@@ -35,7 +35,8 @@ const inPages = (pathEntry, pages) => {
     return true;
   }
   const pathEntryRel = pathEntry
-    .replace(/^(.*?)\.next\/serverless\/pages/, "")
+    .replace(/^(.*?)\.next[\/\\]serverless[\/\\]pages/, "")
+    .replace(/\\/g,'/')
     .replace(/\.js$/, "");
   for (page of pages) {
     if (pathEntryRel === page) {
